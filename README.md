@@ -1,4 +1,5 @@
-# qiniu
+# lektor Qiniu Cloud plugin 
 
-This is where a description of your plugin goes.
-Provide usage instructions here.
+## this plugin is for Lektor CMS, to deploy your site to Qiniu Cloud.
+
+TBA

@@ -14,25 +14,35 @@ with open('lektor_qiniu.py', 'rb') as f:
         f.read().decode('utf-8')).group(1)))
 
 setup(
-    author='aaron',
-    author_email='arstman@foxmail.com',
+    author='Aaron Peng',
+    author_email='arstman@gmail.com',
     description=description,
-    keywords='Lektor plugin',
+    keywords='Lektor plugin for qiniu',
     license='MIT',
     long_description=readme,
+    version='0.1.1',
     long_description_content_type='text/markdown',
     name='lektor-qiniu',
     packages=find_packages(),
     py_modules=['lektor_qiniu'],
-    # url='[link to your repository]',
-    version='0.1',
+    platforms='any',
+    url='https://github.com/Arstman/lektor-qiniu',
     install_requires=[
         'Lektor',
-        'qiniu'
+        'qiniu',
+        'inifile'
     ],
     classifiers=[
         'Framework :: Lektor',
         'Environment :: Plugins',
+        'Development Status :: 2 - Beta',
+        'Environment :: Web Environment',
+        'Intended Audience :: Developers',
+        'License :: OSI Approved :: MIT License',
+        'Operating System :: OS Independent',
+        'Programming Language :: Python :: 3.6',
+        'Topic :: Internet :: WWW/HTTP :: Site Management',
+        'Topic :: Software Development :: Libraries :: Python Modules'
     ],
     entry_points={
         'lektor.plugins': [

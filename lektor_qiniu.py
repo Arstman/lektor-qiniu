@@ -89,11 +89,12 @@ class qiniuPublisher(Publisher):
             print(refresh_dir_result)
             if refresh_dir_result[0]['code'] ==200:
                 yield "refresh complete!"
-			else:
+            else:
                 yield "Error refreshing:  %s" % refresh_dir_result[0]
 
 class QiniuPlugin(Plugin):
     name = 'qiniu'
-    description = u'Add your description here.'
+    description = u'A plugin for lektor to deploy to qiniu cloud, Use qiniu://<bucket>[/name_of_dir] to deploy to a bucket'
     def on_setup_env(self,**extra):
         self.env.add_publisher('qiniu',qiniuPublisher)
+
