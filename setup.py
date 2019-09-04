@@ -35,7 +35,6 @@ setup(
     classifiers=[
         'Framework :: Lektor',
         'Environment :: Plugins',
-        'Development Status :: 2 - Beta',
         'Environment :: Web Environment',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',

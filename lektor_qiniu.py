@@ -9,14 +9,6 @@ import inifile
 from datetime import datetime 
 
 class qiniuPublisher(Publisher):
-    # def __init__(self, env, access_key,secret_key):
-    #     super(qiniuPublisher, self).__init__(env, output_path)
-    #     self.config = self.get_config()
-    
-    # @property
-    # def config_filename(self):
-    #     return os.path.join(self.env.root_path, 'configs', 'qiniu.ini')
-
     def get_config(self,ini_file):
         path = os.path.join(self.env.root_path,'configs',ini_file)
         return inifile.IniFile(path)
@@ -75,7 +67,7 @@ class qiniuPublisher(Publisher):
                 yield 'something wrong %s' % info.status_code
                 yield 'Full error message: %s' % info
         last_time = datetime.now()-start_time
-        yield "!!!! Upload Done in %s seconds!" % last_time.seconds
+        yield "$$$ Upload Done in %s seconds!" % last_time.seconds
 
         ##start to refresh cdn dir
         if config.get('cdn.refresh_enable') == "yes":
@@ -91,6 +83,7 @@ class qiniuPublisher(Publisher):
                 yield "refresh complete!"
             else:
                 yield "Error refreshing:  %s" % refresh_dir_result[0]
+        yield "ALL TASK ARE COMPLETED!"
 
 class QiniuPlugin(Plugin):
     name = 'qiniu'
