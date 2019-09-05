@@ -20,7 +20,7 @@ setup(
     keywords='Lektor plugin for qiniu',
     license='MIT',
     long_description=readme,
-    version='0.1.2',
+    version='0.1.3',
     long_description_content_type="text/markdown",
     name='lektor-qiniu',
     packages=find_packages(),

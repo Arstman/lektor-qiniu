@@ -5,8 +5,8 @@ lektor-qiniu is a plugin to deploy your lektor site to a qiniu cloud bucket.
 
 
 ## Main Features ##
-1. deploy your site from Lektor admin dashboard to your qiniu bucket
-2. deploy your site to folder in a qiniu bucket
+1. deploy your site to your qiniu bucket
+2. deploy your site to a folder in a qiniu bucket
 3. exclude files and directories from deployment.
 4. refresh your qiniu cdn.
 
@@ -39,7 +39,7 @@ After Installation, open your lektorproject file, first it should have a section
 
 ```ini
 [packages]
-lektor-qiniu= 0.1.2
+lektor-qiniu= 0.1.3
 ```
 
 then below this section, you need add your bucket and folder(optional) as a target of a deploy server, like this:
@@ -70,6 +70,9 @@ enabled = yes
 target = qiniu://abcde/fjhi
 ```
 
+after this you should see a server shows when you push the deploy button in your Lektor Admin Dashboard.
+
+but still you will need just 5 minutes to configure this plugin to make it works.
 
 ## Configuration ##
 
@@ -99,11 +102,44 @@ dirs = .lektor
 files =  
 ```
 
+
+#### Credentials ####
+
+
 You need to get your own Access Key and Secret Key from Qiniu Admin Dashboard, and put them in the **auth**  section.
+
+
+#### Refresh cdn cache ####
+
 
 mostly, Qiniu provides a free(with limitations) cdn for your bucket site, after you update your bucket file, the cdn wouldn't update automatically, therefore you will need to refresh your bucket site's directory (via your site's root url), for more details you can check Qiniu's documentation.
 
 fortunately, you don't need to do refresh manually, you can just set the **refresh_enable** to **yes** in your **cdn** section, and change the refresh_url to your site's root url. this plugin will automatically refresh your cdn site after all files are uploaded.
 
 
+#### exclusions ####
 
+Another function this plugin provides is exclude folders or files you want to upload during deployment. 
+
+To exclude files or folders, just put the name of the folders or files in the **exclusions** section of configuration file, separated each one with commas. 
+
+
+```ini
+[exclusions]
+dirs = .lektor, dir1, dir2
+files =  file1, file2,file3
+```
+
+One special folder here is **.lektor**, which Lektor officially suggests that this folder should be exclude during deployment, therefore you should keep at least this one, unless you have other needs for this folder.
+
+### About Lektor CMS ###
+
+Lektor CMS is one of my favorite static website generators, I have use this in production for several projects, you can see some of my sites as below:
+
+[`新风网`](https://www.xinfengtv.com) 
+[`Intersonic Group`](https://www.intersonicgroup.com) 
+[`F&S Always Auto Parts`](https://www.fnsalways.com) 
+[`THEORING Seal Rings`](https://theoring.com) 
+[`THORING 密封圈`](https://www.theoring.com) 
+
+Looks pretty good, right? Thanks for lektor, you can try this best Static CMS as well via [`Lektor CMS Official Site`](https://www.getlektor.com) 
