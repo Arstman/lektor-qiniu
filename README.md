@@ -39,7 +39,7 @@ After Installation, open your lektorproject file, first it should have a section
 
 ```ini
 [packages]
-lektor-qiniu= 0.1.1
+lektor-qiniu= 0.1.2
 ```
 
 then below this section, you need add your bucket and folder(optional) as a target of a deploy server, like this:
